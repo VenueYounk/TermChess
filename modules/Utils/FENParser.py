@@ -51,27 +51,23 @@ class FENParser:
         for row_num, row in enumerate(rows):
             col_num = 0
             for char in row:
-                if char.isdigit():
-                    col_num += int(char)
-                else:
-                    color = "white" if char.isupper() else "black"
-                    piece_type = char.lower()
-                    print(piece_type)
-                    if piece_type == " ":
-                        continue
-                    if piece_type == "p":
-                        piece = Pawn(color)
-                    elif piece_type == "n":
-                        piece = Knight(color)
-                    elif piece_type == "b":
-                        piece_type = Bishop(color)
-                    elif piece_type == "r":
-                        piece = Rook(color)
-                    elif piece_type == "q":
-                        piece = Queen(color)
-                    elif piece_type == "k":
-                        piece = King(color)
-
+                piece = None
+                color = "white" if char.isupper() else "black"
+                piece_type = char.lower()
+                if piece_type == "p":
+                    piece = Pawn(color)
+                elif piece_type == "n":
+                    piece = Knight(color)
+                elif piece_type == "b":
+                    piece = Bishop(color)
+                elif piece_type == "r":
+                    piece = Rook(color)
+                elif piece_type == "q":
+                    piece = Queen(color)
+                elif piece_type == "k":
+                    piece = King(color)
+                if piece is not None:
                     chessboard[ChessCoord(col_num, 7 - row_num)] = piece
-                    col_num += 1
+                col_num += 1
+
         return chessboard
