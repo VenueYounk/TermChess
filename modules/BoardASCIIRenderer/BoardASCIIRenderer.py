@@ -15,13 +15,10 @@ class BoardASCIIRenderer:
         Bishop: "♝",
         Rook: "♜",
         Queen: "♛",
-        King: "♚"
+        King: "♚",
     }
 
-    ASCII_COLOR = {
-        "black": "\033[31m",
-        "white": "\033[37m"
-    }
+    ASCII_COLOR = {"white": "\033[31m", "black": "\033[37m"}
 
     def __init__(self):
         self.board = [[None] * 8 for _ in range(8)]
@@ -46,7 +43,3 @@ class BoardASCIIRenderer:
                     board_str += "    "
             board_str += Style.RESET_ALL + "\n"
         return board_str
-
-
-
-
