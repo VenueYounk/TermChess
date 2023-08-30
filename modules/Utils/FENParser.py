@@ -1,4 +1,5 @@
 from ..Pieces import *
+from ..Coords import ChessCoord
 
 # TO-DO
 # 1.1 Error handler for incorrect FEN / FEN Validator
@@ -67,7 +68,7 @@ class FENParser:
                     elif piece_type == "k":
                         piece = King(color)
 
-                    chessboard[(col_num, 8 - row_num)] = piece
+                    chessboard[ChessCoord(col_num, 8 - row_num)] = piece
                     col_num += 1
 
         return chessboard
