@@ -1,5 +1,7 @@
 from ..Pieces import *
 from ..Coords import ChessCoord
+import pprint
+
 
 # TO-DO
 # 1.1 Error handler for incorrect FEN / FEN Validator
@@ -54,7 +56,9 @@ class FENParser:
                 else:
                     color = "white" if char.isupper() else "black"
                     piece_type = char.lower()
-
+                    print(piece_type)
+                    if piece_type == " ":
+                        continue
                     if piece_type == "p":
                         piece = Pawn(color)
                     elif piece_type == "n":
@@ -70,5 +74,4 @@ class FENParser:
 
                     chessboard[ChessCoord(col_num, 7 - row_num)] = piece
                     col_num += 1
-
         return chessboard
