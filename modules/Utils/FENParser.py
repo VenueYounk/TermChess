@@ -67,7 +67,7 @@ class FENParser:
                 elif piece_type == "k":
                     piece = King(color)
                 if piece is not None:
-                    chessboard[ChessCoord(col_num, 7 - row_num)] = piece
+                    chessboard[ChessCoord(col_num, row_num)] = piece
                 col_num += 1
 
         return chessboard

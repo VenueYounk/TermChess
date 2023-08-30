@@ -12,7 +12,7 @@ class BoardASCIIRenderer:
         King: "♚",
     }
 
-    ASCII_COLOR = {"white": "\033[31m", "black": "\033[37m"}
+    ASCII_COLOR = {"black": "\033[31m", "white": "\033[37m"}
 
     def __init__(self):
         self.board = [[None] * 8 for _ in range(8)]
