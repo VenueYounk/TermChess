@@ -1,11 +1,5 @@
 from ..Pieces import Bishop, King, Knight, Pawn, Queen, Rook
 from colorama import Back, Style
-from ..Coords import ChessCoord
-from ..Pieces import Piece
-from ..Board import Board
-
-
-# init должен принимать экземпляр класса board
 
 
 class BoardASCIIRenderer:
