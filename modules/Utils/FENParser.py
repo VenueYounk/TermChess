@@ -47,7 +47,7 @@ class FENParser:
         chessboard = {}
 
         for row_num, row in enumerate(rows):
-            col_num = 1
+            col_num = 0
             for char in row:
                 if char.isdigit():
                     col_num += int(char)
@@ -68,7 +68,7 @@ class FENParser:
                     elif piece_type == "k":
                         piece = King(color)
 
-                    chessboard[ChessCoord(col_num, 8 - row_num)] = piece
+                    chessboard[ChessCoord(col_num, 7 - row_num)] = piece
                     col_num += 1
 
         return chessboard
