@@ -1,9 +1,9 @@
 from modules.Board import Board
 from modules.Utils import FENParser
+from modules.BoardASCIIRenderer import BoardASCIIRenderer
 import pprint
 
 
 board = Board()
-
-
-pprint.pprint(board.board)
+renderer = BoardASCIIRenderer()
+renderer.render(board.board)
