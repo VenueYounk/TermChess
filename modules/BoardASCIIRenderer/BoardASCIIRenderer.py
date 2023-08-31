@@ -19,11 +19,13 @@ class BoardASCIIRenderer:
 
     def render(self, chess_dict):
         board_str = ""
+
         for position, piece in chess_dict.items():
             row, col = position.y, position.x
             self.board[7 - row][col] = piece
 
         for row in range(8):
+            board_str += f"{8 - row} "
             for col in range(8):
                 if (row + col) % 2 == 0:
                     board_str += Back.WHITE
@@ -36,4 +38,7 @@ class BoardASCIIRenderer:
                 else:
                     board_str += "    "
             board_str += Style.RESET_ALL + "\n"
+
+        board_str += "   A   B   C   D   E   F   G   H\n"
+
         return board_str
