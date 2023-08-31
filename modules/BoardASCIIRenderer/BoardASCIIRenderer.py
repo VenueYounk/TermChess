@@ -1,11 +1,5 @@
 from ..Pieces import Bishop, King, Knight, Pawn, Queen, Rook
 from colorama import Back, Style
-from ..Coords import ChessCoord
-from ..Pieces import Piece
-from ..Board import Board
-
-
-# init должен принимать экземпляр класса board
 
 
 class BoardASCIIRenderer:
@@ -15,24 +9,23 @@ class BoardASCIIRenderer:
         Bishop: "♝",
         Rook: "♜",
         Queen: "♛",
-        King: "♚"
+        King: "♚",
     }
 
-    ASCII_COLOR = {
-        "black": "\033[31m",
-        "white": "\033[37m"
-    }
+    ASCII_COLOR = {"black": "\033[31m", "white": "\033[37m"}
 
     def __init__(self):
         self.board = [[None] * 8 for _ in range(8)]
 
     def render(self, chess_dict):
         board_str = ""
+
         for position, piece in chess_dict.items():
             row, col = position.y, position.x
-            self.board[row][col] = piece
+            self.board[7 - row][col] = piece
 
         for row in range(8):
+            board_str += f"{8 - row} "
             for col in range(8):
                 if (row + col) % 2 == 0:
                     board_str += Back.WHITE
@@ -45,8 +38,7 @@ class BoardASCIIRenderer:
                 else:
                     board_str += "    "
             board_str += Style.RESET_ALL + "\n"
+
+        board_str += "   A   B   C   D   E   F   G   H\n"
+
         return board_str
-
-
-
-
