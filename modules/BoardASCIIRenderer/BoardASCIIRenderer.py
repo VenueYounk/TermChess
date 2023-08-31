@@ -21,7 +21,7 @@ class BoardASCIIRenderer:
         board_str = ""
         for position, piece in chess_dict.items():
             row, col = position.y, position.x
-            self.board[row][col] = piece
+            self.board[7 - row][col] = piece
 
         for row in range(8):
             for col in range(8):
