@@ -17,7 +17,7 @@ class BoardASCIIRenderer:
     def __init__(self):
         self.board = [[None] * 8 for _ in range(8)]
 
-    def render(self, chess_dict):
+    def render(self, chess_dict, move_history):
         board_str = ""
 
         for position, piece in chess_dict.items():
@@ -37,8 +37,20 @@ class BoardASCIIRenderer:
                     board_str += f"{self.ASCII_COLOR[square_piece.color]} {self.ASCII_PIECE[square_piece.__class__]}  "
                 else:
                     board_str += "    "
-            board_str += Style.RESET_ALL + "\n"
+
+            board_str += Style.RESET_ALL
+            if row == 0:
+                board_str += "    MOVES HISTORY"
+
+            elif row < len(move_history):
+                move = move_history[row]
+                board_str += f"    {move['white']: <6}:  {move['black']: <6}" if 'black' in move else f"    {move['white']: <6}: "
+
+            board_str += "\n"
 
         board_str += "   A   B   C   D   E   F   G   H\n"
 
         return board_str
+
+
+print("\033[H\033[J")
