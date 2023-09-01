@@ -1,6 +1,6 @@
 from modules.Board import Board
 from modules.BoardASCIIRenderer import BoardASCIIRenderer
 
-board = Board("k7/8/8/8/8/8/R7/1Q6 w - - 0 1")
+board = Board("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
 renderer = BoardASCIIRenderer()
 print(renderer.render(board.board))
